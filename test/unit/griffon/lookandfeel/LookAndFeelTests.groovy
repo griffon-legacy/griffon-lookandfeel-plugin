@@ -14,23 +14,29 @@
  * limitations under the License.
  */
 
+package griffon.lookandfeel
+
 /**
  * @author Andres Almiray
  */
-class LookandfeelGriffonPlugin {
-    def version = 0.1
-    def griffonVersion = '0.3.2 > *' 
-    def dependsOn = [:]
-    def toolkits = ['swing']
-    def license = 'Apache Software License 2.0'
+class LookAndFeelTests extends AbstractLookAndFeelTestCase {
+    void testSystemNimbusLookAndFeel() {
+        setAndTestLookAndFeel('System', 'Nimbus')
+    }
 
-    def author = 'Andres Almiray'
-    def authorEmail = 'aalmiray@users.sourceforge.net'
-    def title = 'Swing Look & Feel selector'
-    def description = '''
-Swing Look & Feel selector.
-'''
+    void testSystemMetalLookAndFeel() {
+        setAndTestLookAndFeel('System', 'Metal')
+    }
 
-    // URL to the plugin's documentation
-    def documentation = 'http://griffon.codehaus.org/Lookandfeel+Plugin'
+    void testSystemMotifLookAndFeel() {
+        setAndTestLookAndFeel('System', 'Motif')
+    }
+
+    void testSystemSystemLookAndFeel() {
+        setAndTestLookAndFeel('System', 'System')
+    }
+
+    void testSystemCrossPlatformLookAndFeel() {
+        setAndTestLookAndFeel('System', 'CrossPlatform')
+    }
 }
