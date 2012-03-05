@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2010-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import java.awt.event.KeyEvent
 import javax.swing.UIManager
 import javax.swing.KeyStroke
 
+import griffon.core.GriffonApplication
 import griffon.util.RunMode
 
 import static griffon.util.GriffonApplicationUtils.isMacOSX
@@ -33,7 +34,7 @@ import static griffon.util.GriffonApplicationUtils.isMacOSX
  * @author Andres Almiray
  */
 class LookandfeelGriffonAddon {
-    def addonInit(app) {
+    void addonInit(GriffonApplication app) {
         if(RunMode.current == RunMode.APPLET || RunMode.current == RunMode.WEBSTART) {
             UIManager.put('ClassLoader', app.class.classLoader)
         }
@@ -41,14 +42,14 @@ class LookandfeelGriffonAddon {
         LookAndFeelManager.instance.loadLookAndFeelProviders()
 
         String provider = app.config.lookandfeel.lookAndFeel ?: 'System'
-        String theme = app.config.lookandfeel.theme ?: (isMacOSX? 'System': 'Nimbus')
+        String theme    = app.config.lookandfeel.theme ?: (isMacOSX? 'System': 'Nimbus')
 
         LookAndFeelManager.instance.with {
             LookAndFeelProvider lafProvider = getLookAndFeelProvider(provider)
             LookAndFeelInfo lafInfo = getLookAndFeelInfo(lafProvider, theme)
             if(!lafInfo) {
                 lafProvider = getLookAndFeelProvider('System')
-                lafInfo = getLookAndFeelInfo(lafProvider, (isMacOSX? 'System': ' Nimbus'))
+                lafInfo     = getLookAndFeelInfo(lafProvider, (isMacOSX? 'System': ' Nimbus'))
             }
             apply(lafInfo, app)
         }
