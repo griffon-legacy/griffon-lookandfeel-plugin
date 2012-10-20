@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2010-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -68,7 +68,7 @@ actions {
         shortDescription: 'Paste')
 }
 
-panel(id: 'box') {     
+panel(id: 'box') {
     borderLayout(hgap: 15, vgap: 15)
     panel(constraints: NORTH) {
         migLayout(layoutConstraints: 'fill')
@@ -124,12 +124,12 @@ panel(id: 'box') {
                     scrollPane(constraints: CENTER) {
                         panel {
                             gridLayout(cols: 2, rows: 6)
-                            checkBox('Enabled selected', selected: true) 
-                            radioButton('Enabled selected', selected: true) 
-                            checkBox('Disabled selected', enabled: false, selected: true) 
-                            radioButton('Disabled selected', enabled: false, selected: true) 
+                            checkBox('Enabled selected', selected: true)
+                            radioButton('Enabled selected', selected: true)
+                            checkBox('Disabled selected', enabled: false, selected: true)
+                            radioButton('Disabled selected', enabled: false, selected: true)
                             checkBox('Enabled unselected')
-                            radioButton('Enabled unselected') 
+                            radioButton('Enabled unselected')
                             comboBox(items: ['Item 1', 'Item 2', 'Item 3'])
                             textField('TextField')
                             comboBox(items: ['Item 1', 'Item 2', 'Item 3'], enabled: false)

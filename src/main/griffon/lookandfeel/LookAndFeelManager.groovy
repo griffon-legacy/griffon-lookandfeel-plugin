@@ -73,7 +73,7 @@ final class LookAndFeelManager {
         for(lookAndFeelInfo in provider.supportedLookAndFeels) {
             if(lookAndFeelInfo.displayName == displayName) {
                 return lookAndFeelInfo
-            } 
+            }
         }
         return null
     }
@@ -82,7 +82,7 @@ final class LookAndFeelManager {
         for(provider in getLookAndFeelProviders()) {
             if(provider.handles(UIManager.lookAndFeel)) {
                 return provider
-            } 
+            }
         }
         return null
     }

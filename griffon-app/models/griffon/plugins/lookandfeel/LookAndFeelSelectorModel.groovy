@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2010 -2012the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 package griffon.plugins.lookandfeel
 
 import groovy.beans.Bindable
-import java.beans.PropertyChangeListener
+import griffon.transform.PropertyListener
 import javax.swing.DefaultComboBoxModel
 import griffon.lookandfeel.LookAndFeelInfo
 import griffon.lookandfeel.LookAndFeelProvider
@@ -30,7 +30,7 @@ class LookAndFeelSelectorModel {
     final DefaultComboBoxModel providerModel = new DefaultComboBoxModel()
     final DefaultComboBoxModel lafInfoModel = new DefaultComboBoxModel()
 
-    @Bindable LookAndFeelProvider providerSelection
+    @Bindable @PropertyListener(updateLafInfoModel) LookAndFeelProvider providerSelection
     @Bindable LookAndFeelInfo lafSelection
     boolean reset = false
 
@@ -38,12 +38,10 @@ class LookAndFeelSelectorModel {
         LookAndFeelManager.instance.lookAndFeelProviders.sort().each { provider ->
             providerModel << provider
         }
-
-        addPropertyChangeListener('providerSelection', updateLafInfoModel as PropertyChangeListener)
     }
 
     private updateLafInfoModel = { e = null ->
-        if(!providerSelection) return
+        if (!providerSelection) return
         lafInfoModel.removeAllElements()
         providerSelection.supportedLookAndFeels.sort().each { laf ->
             lafInfoModel << laf

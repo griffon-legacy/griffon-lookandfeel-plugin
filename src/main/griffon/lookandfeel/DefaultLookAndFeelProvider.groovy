@@ -30,7 +30,7 @@ abstract class DefaultLookAndFeelProvider extends LookAndFeelProvider {
     DefaultLookAndFeelProvider(String name) {
         super(name)
     }
-    
+
     void preview(griffon.lookandfeel.LookAndFeelInfo lookAndFeelInfo, Component component) {
         if(!handles(lookAndFeelInfo)) return
         lookAndFeelInfo.preview(component)

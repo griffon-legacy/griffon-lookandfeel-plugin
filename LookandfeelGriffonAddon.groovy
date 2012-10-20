@@ -76,7 +76,7 @@ class LookandfeelGriffonAddon {
         })
     }
 
-    def mvcGroups = [
+    Map mvcGroups = [
         'LookAndFeelSelector': [
             model     : 'griffon.plugins.lookandfeel.LookAndFeelSelectorModel',
             view      : 'griffon.plugins.lookandfeel.LookAndFeelSelectorView',

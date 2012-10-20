@@ -19,11 +19,11 @@
  */
 class LookandfeelGriffonPlugin {
     // the plugin version
-    String version = '0.6'
+    String version = '1.0.0'
     // the version or versions of Griffon the plugin is designed for
-    String griffonVersion = '0.9.5 > *'
+    String griffonVersion = '1.0.0 > *'
     // the other plugins this plugin depends on
-    Map dependsOn = [miglayout: '0.4']
+    Map dependsOn = [miglayout: '1.0.0']
     // resources that are included in plugin packaging
     List pluginIncludes = []
     // the plugin license
@@ -92,9 +92,9 @@ LookAndFeel and Themes
 | *LookAndFeel* | *Theme*         |
 | ------------- | --------------- |
 | System        | CrossPlatform   |
-|               | Metal           |
-|               | Motif           |
-|               | Nimbus          |
-|               | System          |
+|               | Metal           |
+|               | Motif           |
+|               | Nimbus          |
+|               | System          |
 '''
 }

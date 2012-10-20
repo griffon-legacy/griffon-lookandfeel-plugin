@@ -48,7 +48,7 @@ public abstract class LookAndFeelInfo implements Comparable {
         if(obj == null) return false;
         if(obj == this) return true;
         if(!(obj instanceof LookAndFeelInfo)) return false;
-        
+
         LookAndFeelInfo other = (LookAndFeelInfo) obj;
         return identifier.equals(other.identifier);
     }

@@ -46,7 +46,7 @@ class SystemLookAndFeelProvider extends DefaultLookAndFeelProvider {
     SystemLookAndFeelProvider() {
         super('System')
     }
-    
+
     boolean handles(LookAndFeel lookAndFeel) {
         SUPPORTED_LAFS.find {it.lookAndFeel.class.name == lookAndFeel.class.name} ? true : false
     }
